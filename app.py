@@ -13,6 +13,8 @@ app.register_blueprint(music_blueprint)
 from models import Artist
 from models import Song
 
+
+
 # @app.route("/")
 # def hello_world():
 #     ariana = Artist(artist_name="Ariana Grande", alive=True)

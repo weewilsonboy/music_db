@@ -1,0 +1,31 @@
+{% extends "base.jinja" %}
+{% block content %}
+    <form action="/music" method="post">
+    
+    <div>
+        <label for="artist_name">Artist Name</label>
+    
+        <input type="text" id="artist_name" name="artist_name" required autofocus>
+    </div>
+    <div>
+        <label for="alive">Alive?</label>
+    
+        <input type="checkbox" id="alive" name="alive">
+    </div>
+    
+    <div>
+        <button type="submit">Add Artist</button>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    </form>
+
+
+
+{% endblock content %}
