@@ -24,3 +24,19 @@ def new_artist():
 @music_blueprint.route('/music/new_artist')
 def new_artist_page():
     return render_template("music/new_artist.jinja")
+
+@music_blueprint.route('/music/new_song')
+def new_song_page():
+    artists = Artist.query.all()
+    return render_template("music/new_song.jinja", artists=artists)
+
+@music_blueprint.route('/music/new_song', methods=['POST'])
+def new_song():
+    title = request.form['title']
+    duration = request.form['duration']
+    genre = request.form['genre']
+    artist_id = int(request.form['artist_id'])
+    new_song = Song(title=title, duration=duration, genre=genre, artist_id=artist_id)
+    db.session.add(new_song)
+    db.session.commit()
+    return redirect('/music')
