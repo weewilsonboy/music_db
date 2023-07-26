@@ -3,11 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://steph:password@localhost:5432/music_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://wilson:password@localhost:5432/music_db"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-# from models import Artist
-# from models import Song
+
+from controllers.music_controller import music_blueprint
+app.register_blueprint(music_blueprint)
+
+from models import Artist
+from models import Song
 
 # @app.route("/")
 # def hello_world():
@@ -19,6 +23,7 @@ migrate = Migrate(app, db)
 #     db.session.add(thanku)
 #     db.session.commit()
 #     return "hkf"
+
 
 
 #     #delete all the rows - below 2 lines will run every time
