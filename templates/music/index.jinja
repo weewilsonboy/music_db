@@ -1,12 +1,20 @@
 {% extends "base.jinja" %}
 
 {% block content %}
+<a href="/music/new_song">New Song</a>
+
 {% for artist in artists %}
   <div class="artist">
     <div class="artist__content">
       <div class="artist__description">
-        <a href="/artists/{{artist.id}}">{{artist.artist_name}}</a>
+        <h2>{{artist.artist_name}}</h2>
         <span class="artist__alive">{{artist.alive}}</span>
+        <a href="/music/{{artist.id}}/edit_artist">Has this changed?</a>
+        <div>
+        {% for song in artist.songs %}
+          <a href="/music/{{ song.id }}">{{ song.title }}</a>
+        {% endfor %}
+        </div>
       </div>
     </div>
 </div>

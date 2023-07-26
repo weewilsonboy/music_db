@@ -1,0 +1,15 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<div class="song">
+    <div class="song__content">
+        <div class="song__description">
+            <h2>{{song.title}}</h2>
+            <span class="song__duration">{{song.duration}}</span>
+            <p>{{ song.genre }}</p>
+            <p>{{ artist.artist_name }}</p>
+            <a href="/music/{{song.id}}/edit">Edit</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

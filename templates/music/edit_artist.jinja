@@ -1,0 +1,12 @@
+{% extends "base.jinja" %}
+{% block content %}
+<h1>{{artist.name}}</h1>
+<form action="/music/{{ artist.id }}/edit_artist" method="post">
+    <div>
+        <label for="alive">Are they alive?</label>
+        <input type="checkbox" name="alive" id="alive">
+    </div>
+    
+    <button type="submit">Update Morgue</button>
+</form>
+{% endblock %}
